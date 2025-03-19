@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Check, X } from 'lucide-react';
+import { Check, X, FileText } from 'lucide-react';
 
 const PlansSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -134,7 +134,11 @@ const PlansSection = () => {
 
         <div className="mt-16 text-center animate-on-scroll">
           <p className="text-muted-foreground mb-4">Precisa de um plano personalizado para seu negócio?</p>
-          <Button variant="outline" className="bg-transparent hover:bg-primary/5 text-primary border-primary rounded-md">
+          <Button 
+            variant="outline" 
+            className="quote-btn bg-transparent hover:bg-primary/5 text-primary border-primary rounded-md flex items-center gap-2"
+          >
+            <FileText size={18} />
             Solicitar Proposta Personalizada
           </Button>
         </div>
@@ -196,12 +200,13 @@ const PlanCard = ({ name, description, price, features, popular, cta, index }: P
     
     <CardFooter className="pt-0 pb-8">
       <Button 
-        className={`w-full rounded-md shadow-button transition-all duration-300 ${
+        className={`quote-btn w-full rounded-md shadow-button transition-all duration-300 flex items-center justify-center gap-2 ${
           popular 
             ? 'bg-primary hover:bg-primary/90 text-white' 
             : 'bg-primary/10 hover:bg-primary/20 text-primary'
         }`}
       >
+        <FileText size={18} className={popular ? 'text-white' : 'text-primary'} />
         {cta}
       </Button>
     </CardFooter>

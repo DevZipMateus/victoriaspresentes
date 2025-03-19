@@ -89,7 +89,8 @@ const ServicesSection = () => {
         </div>
 
         <div className="mt-16 text-center animate-on-scroll">
-          <Button className="bg-primary hover:bg-primary/90 text-white rounded-md shadow-button hover:shadow-lg transition-all duration-300">
+          <Button className="quote-btn bg-primary hover:bg-primary/90 text-white rounded-md shadow-button hover:shadow-lg transition-all duration-300 flex items-center gap-2">
+            <FileText size={18} />
             Ver Todos os Serviços
           </Button>
         </div>

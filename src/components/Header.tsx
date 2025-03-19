@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, FileText } from 'lucide-react';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -44,7 +44,8 @@ const Header = () => {
           {/* Desktop Menu */}
           <nav className="hidden md:flex items-center space-x-1">
             <NavLinks />
-            <Button className="ml-4 bg-primary hover:bg-primary/90 text-white rounded-md transition-all duration-300 shadow-button hover:shadow-lg">
+            <Button className="quote-btn ml-4 bg-primary hover:bg-primary/90 text-white rounded-md transition-all duration-300 shadow-button hover:shadow-lg flex items-center gap-2">
+              <FileText size={18} />
               Fale Conosco
             </Button>
           </nav>
@@ -68,7 +69,8 @@ const Header = () => {
           >
             <nav className="flex flex-col items-center space-y-6 text-lg">
               <NavLinks mobile onClick={toggleMobileMenu} />
-              <Button className="mt-4 bg-primary hover:bg-primary/90 text-white rounded-md transition-all duration-300 shadow-button hover:shadow-lg">
+              <Button className="quote-btn mt-4 bg-primary hover:bg-primary/90 text-white rounded-md transition-all duration-300 shadow-button hover:shadow-lg flex items-center gap-2">
+                <FileText size={18} />
                 Fale Conosco
               </Button>
             </nav>

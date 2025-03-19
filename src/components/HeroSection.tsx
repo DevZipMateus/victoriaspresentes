@@ -1,7 +1,7 @@
 
 import { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, FileText } from 'lucide-react';
 
 const HeroSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -27,8 +27,8 @@ const HeroSection = () => {
     >
       {/* Background with overlay */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-hero-pattern"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-black/50"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-accent/80"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/10 to-black/30"></div>
       </div>
 
       <div className="container mx-auto px-4 md:px-8 relative z-10 text-center">
@@ -50,8 +50,13 @@ const HeroSection = () => {
             <Button size="lg" className="bg-white text-primary hover:bg-white/90 rounded-md shadow-button transition-all duration-300">
               Saiba Mais
             </Button>
-            <Button size="lg" variant="outline" className="text-white border-white hover:bg-white/10 rounded-md shadow-button transition-all duration-300">
-              Solicitar Orçamento
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="quote-btn text-white border-white hover:text-white hover:border-white hover:bg-white/10 group rounded-md shadow-button transition-all duration-300 flex gap-2"
+            >
+              <FileText size={20} className="group-hover:animate-pulse" />
+              <span>Solicitar Orçamento</span>
             </Button>
           </div>
         </div>
