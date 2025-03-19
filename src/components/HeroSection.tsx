@@ -1,30 +1,22 @@
-
 import { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { ChevronDown, FileText } from 'lucide-react';
-
 const HeroSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     if (sectionRef.current) {
       sectionRef.current.classList.add('animate-fade-in');
     }
   }, []);
-
   const scrollToNextSection = () => {
     const aboutSection = document.getElementById('about');
     if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: 'smooth' });
+      aboutSection.scrollIntoView({
+        behavior: 'smooth'
+      });
     }
   };
-
-  return (
-    <section
-      id="hero"
-      ref={sectionRef}
-      className="relative min-h-screen flex items-center justify-center pt-16"
-    >
+  return <section id="hero" ref={sectionRef} className="relative min-h-screen flex items-center justify-center pt-16">
       {/* Background with overlay */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-accent/80"></div>
@@ -50,11 +42,7 @@ const HeroSection = () => {
             <Button size="lg" className="bg-white text-primary hover:bg-white/90 rounded-md shadow-button transition-all duration-300">
               Saiba Mais
             </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="quote-btn text-white border-white hover:text-white hover:border-white hover:bg-white/10 group rounded-md shadow-button transition-all duration-300 flex gap-2"
-            >
+            <Button size="lg" variant="outline" className="quote-btn border-white hover:border-white hover:bg-white/10 group rounded-md shadow-button transition-all duration-300 flex gap-2 text-green-950">
               <FileText size={20} className="group-hover:animate-pulse" />
               <span>Solicitar Orçamento</span>
             </Button>
@@ -63,14 +51,9 @@ const HeroSection = () => {
       </div>
 
       {/* Scroll down indicator */}
-      <div 
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white cursor-pointer animate-bounce"
-        onClick={scrollToNextSection}
-      >
+      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white cursor-pointer animate-bounce" onClick={scrollToNextSection}>
         <ChevronDown size={32} />
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;
