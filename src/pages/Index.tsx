@@ -18,7 +18,8 @@ const Index = () => {
         const elementPosition = element.getBoundingClientRect().top;
         const windowHeight = window.innerHeight;
         
-        if (elementPosition < windowHeight * 0.9) {
+        // Trigger animations a bit earlier (80% of viewport height instead of 90%)
+        if (elementPosition < windowHeight * 0.8) {
           element.classList.add('visible');
         }
       });
