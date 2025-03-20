@@ -176,7 +176,7 @@ html {
 /* Mobile menu improvements */
 @media (max-width: 768px) {
   .mobile-nav-link {
-    @apply w-full text-center py-4 px-5;
+    @apply w-full text-center py-3 px-5;
   }
   
   .quote-btn {
@@ -192,6 +192,7 @@ html {
   [data-radix-sheet-content] {
     max-height: 100vh !important;
     height: auto !important;
+    padding-bottom: 24px !important;
   }
   
   /* Ensure the mobile menu is separate from the content */
