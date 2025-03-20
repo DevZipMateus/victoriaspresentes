@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { MessageSquare, X } from 'lucide-react';
+import { X } from 'lucide-react';
 
 const WhatsAppButton = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -48,7 +48,9 @@ const WhatsAppButton = () => {
             onClick={handleOpenWhatsApp}
             className="w-full py-2 px-4 bg-green-500 hover:bg-green-600 text-white rounded-md flex items-center justify-center"
           >
-            <MessageSquare size={18} className="mr-2" />
+            <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="mr-2">
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+            </svg>
             Iniciar conversa
           </button>
         </div>
@@ -56,10 +58,13 @@ const WhatsAppButton = () => {
       
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="whatsapp-btn bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg flex items-center justify-center"
+        className="whatsapp-btn bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-xl flex items-center justify-center relative overflow-hidden"
         aria-label="WhatsApp"
       >
-        <MessageSquare size={24} />
+        <div className="absolute inset-0 bg-white opacity-30 whatsapp-ripple"></div>
+        <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+        </svg>
       </button>
     </div>
   );
