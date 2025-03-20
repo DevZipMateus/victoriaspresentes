@@ -1,3 +1,4 @@
+
 import { Button } from '@/components/ui/button';
 import { ChevronUp } from 'lucide-react';
 
@@ -15,9 +16,9 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
             <h3 className="text-xl font-bold mb-4">
-              <span className="text-primary-foreground">Harmônica</span> Contabilidade
+              <span className="text-white/95">Harmônica</span> Contabilidade
             </h3>
-            <p className="text-primary-foreground/90 max-w-xs">
+            <p className="text-white/80 max-w-xs">
               Soluções contábeis personalizadas para o crescimento e sucesso do seu negócio.
             </p>
             <div className="flex space-x-4 mt-6">
@@ -51,7 +52,7 @@ const Footer = () => {
 
           <div>
             <h4 className="text-lg font-semibold mb-4">Contato</h4>
-            <ul className="space-y-3 text-primary-foreground/90">
+            <ul className="space-y-3 text-white/80">
               <li>(11) 3456-7890</li>
               <li>contato@harmonicacontabil.com.br</li>
               <li>Av. Paulista, 1000, São Paulo - SP</li>
@@ -60,10 +61,10 @@ const Footer = () => {
           </div>
         </div>
 
-        <hr className="border-primary-foreground/20 my-8" />
+        <hr className="border-white/20 my-8" />
 
         <div className="flex flex-col md:flex-row justify-between items-center">
-          <p className="text-primary-foreground/80 text-sm">
+          <p className="text-white/70 text-sm">
             © {new Date().getFullYear()} Harmônica Contabilidade. Todos os direitos reservados.
           </p>
           <div className="mt-4 md:mt-0">
@@ -71,7 +72,7 @@ const Footer = () => {
               onClick={scrollToTop}
               variant="outline"
               size="icon"
-              className="rounded-full bg-primary-foreground/10 border-primary-foreground/20 hover:bg-primary-foreground/20"
+              className="rounded-full bg-white/10 border-white/20 hover:bg-white/20 text-white"
             >
               <ChevronUp className="h-5 w-5" />
             </Button>
@@ -91,7 +92,7 @@ const FooterNavItem = ({ href, children }: FooterNavItemProps) => (
   <li>
     <a
       href={href}
-      className="text-primary-foreground/80 hover:text-primary-foreground transition-colors duration-200"
+      className="text-white/70 hover:text-white transition-colors duration-200"
     >
       {children}
     </a>
@@ -106,7 +107,7 @@ interface FooterSocialLinkProps {
 const FooterSocialLink = (props: FooterSocialLinkProps) => (
   <a
     {...props}
-    className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-primary-foreground/20 hover:bg-primary-foreground/30 transition-colors duration-200"
+    className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 transition-colors duration-200"
   />
 );
 

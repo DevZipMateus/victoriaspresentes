@@ -51,7 +51,7 @@ const Header = () => {
           {/* Desktop Menu */}
           <nav className="hidden md:flex items-center space-x-1">
             <NavLinks />
-            <Button className="quote-btn ml-4 bg-primary hover:bg-primary/90 text-white rounded-md transition-all duration-300 shadow-button hover:shadow-lg flex items-center gap-2">
+            <Button className="quote-btn ml-4 bg-primary hover:bg-primary/90 text-white rounded-md transition-all duration-300 shadow-md hover:shadow-lg flex items-center gap-2">
               <FileText size={18} />
               Fale Conosco
             </Button>
@@ -70,7 +70,7 @@ const Header = () => {
                 <nav className="flex flex-col items-center space-y-4 text-lg">
                   <NavLinks mobile />
                   <SheetClose asChild>
-                    <Button className="quote-btn mt-4 w-full bg-primary hover:bg-primary/90 text-white rounded-md transition-all duration-300 shadow-button hover:shadow-lg flex items-center justify-center gap-2 py-3 text-base">
+                    <Button className="quote-btn mt-4 w-full bg-primary hover:bg-primary/90 text-white rounded-md transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2 py-3 text-base">
                       <FileText size={18} />
                       Fale Conosco
                     </Button>
@@ -108,7 +108,7 @@ const NavLinks = ({ mobile, onClick }: NavLinksProps) => {
           className={`font-medium transition-all duration-300 px-3 py-2 rounded-md
             ${mobile 
               ? 'text-xl text-foreground hover:text-primary mb-2 w-full text-center py-3' 
-              : 'text-foreground/90 hover:text-primary hover:bg-accent/50'
+              : 'text-foreground/90 hover:text-primary hover:bg-accent/10'
             }`}
           onClick={onClick}
         >

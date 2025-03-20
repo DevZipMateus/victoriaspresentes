@@ -112,7 +112,7 @@ const TestimonialsSection = () => {
           <div className="flex justify-center mt-10 space-x-4">
             <button
               onClick={handlePrev}
-              className="p-3 rounded-full bg-white shadow-button border border-gray-200 text-foreground hover:bg-gray-50 transition-colors"
+              className="p-3 rounded-full bg-white shadow-md border border-gray-200 text-foreground hover:bg-gray-50 transition-colors"
               aria-label="Depoimento anterior"
             >
               <ChevronLeft size={20} />
@@ -138,7 +138,7 @@ const TestimonialsSection = () => {
             
             <button
               onClick={handleNext}
-              className="p-3 rounded-full bg-white shadow-button border border-gray-200 text-foreground hover:bg-gray-50 transition-colors"
+              className="p-3 rounded-full bg-white shadow-md border border-gray-200 text-foreground hover:bg-gray-50 transition-colors"
               aria-label="Próximo depoimento"
             >
               <ChevronRight size={20} />
@@ -160,7 +160,7 @@ interface TestimonialCardProps {
 }
 
 const TestimonialCard = ({ testimonial }: TestimonialCardProps) => (
-  <Card className="border border-border/50 shadow-card service-card h-full">
+  <Card className="border border-border/50 shadow-md service-card h-full">
     <CardContent className="p-8 h-full flex flex-col">
       <div className="mb-6 text-primary">
         <Quote size={32} />
