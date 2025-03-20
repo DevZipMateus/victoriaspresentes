@@ -3,10 +3,15 @@ import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X, FileText } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetClose,
+} from "@/components/ui/sheet";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const isMobile = useIsMobile();
 
   // Handle scroll effect
@@ -27,27 +32,10 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Handle mobile menu body scroll locking
-  useEffect(() => {
-    if (isMobile) {
-      document.body.style.overflow = isMobileMenuOpen ? 'hidden' : 'auto';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
-    
-    return () => {
-      document.body.style.overflow = 'auto';
-    };
-  }, [isMobileMenuOpen, isMobile]);
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled || isMobileMenuOpen
+        isScrolled
           ? 'py-3 bg-white/95 backdrop-blur-md shadow-nav' 
           : 'py-5 bg-transparent'
       }`}
@@ -69,30 +57,27 @@ const Header = () => {
             </Button>
           </nav>
 
-          {/* Mobile Menu Toggle */}
-          <button 
-            className="md:hidden relative z-20 p-2 text-foreground"
-            onClick={toggleMobileMenu}
-            aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"}
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-
-          {/* Mobile Menu */}
-          <div 
-            className={`fixed inset-0 bg-white/95 backdrop-blur-md flex flex-col items-center justify-center z-10 transition-all duration-500 md:hidden ${
-              isMobileMenuOpen 
-                ? 'opacity-100 pointer-events-auto translate-x-0' 
-                : 'opacity-0 pointer-events-none translate-x-full'
-            }`}
-          >
-            <nav className="flex flex-col items-center space-y-6 text-lg">
-              <NavLinks mobile onClick={toggleMobileMenu} />
-              <Button className="quote-btn mt-4 bg-primary hover:bg-primary/90 text-white rounded-md transition-all duration-300 shadow-button hover:shadow-lg flex items-center gap-2 px-6 py-6 text-base">
-                <FileText size={18} />
-                Fale Conosco
-              </Button>
-            </nav>
+          {/* Mobile Menu using Sheet from shadcn/ui */}
+          <div className="md:hidden">
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon" className="h-10 w-10 text-foreground">
+                  <Menu size={24} />
+                  <span className="sr-only">Abrir menu</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="top" className="pt-16 pb-8 px-6">
+                <nav className="flex flex-col items-center space-y-6 text-lg">
+                  <NavLinks mobile />
+                  <SheetClose asChild>
+                    <Button className="quote-btn mt-6 w-full bg-primary hover:bg-primary/90 text-white rounded-md transition-all duration-300 shadow-button hover:shadow-lg flex items-center justify-center gap-2 px-6 py-6 text-base">
+                      <FileText size={18} />
+                      Fale Conosco
+                    </Button>
+                  </SheetClose>
+                </nav>
+              </SheetContent>
+            </Sheet>
           </div>
         </div>
       </div>
@@ -122,7 +107,7 @@ const NavLinks = ({ mobile, onClick }: NavLinksProps) => {
           href={link.href}
           className={`font-medium transition-all duration-300 px-3 py-2 rounded-md
             ${mobile 
-              ? 'text-xl text-foreground hover:text-primary mb-2' 
+              ? 'text-xl text-foreground hover:text-primary mb-2 w-full text-center py-4' 
               : 'text-foreground/90 hover:text-primary hover:bg-accent/50'
             }`}
           onClick={onClick}

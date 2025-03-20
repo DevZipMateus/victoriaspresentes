@@ -176,11 +176,27 @@ html {
 /* Mobile menu improvements */
 @media (max-width: 768px) {
   .mobile-nav-link {
-    @apply w-full text-center py-3 px-5;
+    @apply w-full text-center py-4 px-5;
   }
   
   .quote-btn {
     @apply w-full justify-center;
+  }
+  
+  /* Improved touch targets for mobile */
+  a, button {
+    @apply min-h-[44px] flex items-center;
+  }
+  
+  /* Sheet dialog improvements for mobile menu */
+  [data-radix-sheet-content] {
+    max-height: 100vh !important;
+    height: auto !important;
+  }
+  
+  /* Ensure the mobile menu is separate from the content */
+  [data-radix-sheet-content] {
+    z-index: 9999;
   }
 }
 
