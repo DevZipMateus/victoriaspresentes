@@ -2,11 +2,14 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X, FileText } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const isMobile = useIsMobile();
 
+  // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -17,18 +20,34 @@ const Header = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
+    
+    // Initialize the scroll state on mount
+    handleScroll();
+    
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Handle mobile menu body scroll locking
+  useEffect(() => {
+    if (isMobile) {
+      document.body.style.overflow = isMobileMenuOpen ? 'hidden' : 'auto';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+    
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [isMobileMenuOpen, isMobile]);
+
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
-    document.body.style.overflow = isMobileMenuOpen ? 'auto' : 'hidden';
   };
 
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
+        isScrolled || isMobileMenuOpen
           ? 'py-3 bg-white/95 backdrop-blur-md shadow-nav' 
           : 'py-5 bg-transparent'
       }`}
