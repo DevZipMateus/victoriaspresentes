@@ -11,12 +11,12 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-primary text-white py-16">
+    <footer className="bg-secondary-foreground text-white py-16">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
             <h3 className="text-xl font-bold mb-4">
-              <span className="text-white/95">Harmônica</span> Contabilidade
+              <span className="text-primary">Harmônica</span> Contabilidade
             </h3>
             <p className="text-white/80 max-w-xs">
               Soluções contábeis personalizadas para o crescimento e sucesso do seu negócio.
@@ -72,7 +72,7 @@ const Footer = () => {
               onClick={scrollToTop}
               variant="outline"
               size="icon"
-              className="rounded-full bg-white/10 border-white/20 hover:bg-white/20 text-white"
+              className="rounded-full bg-primary/80 border-primary/20 hover:bg-primary/90 text-white"
             >
               <ChevronUp className="h-5 w-5" />
             </Button>
@@ -92,7 +92,7 @@ const FooterNavItem = ({ href, children }: FooterNavItemProps) => (
   <li>
     <a
       href={href}
-      className="text-white/70 hover:text-white transition-colors duration-200"
+      className="text-white/70 hover:text-primary transition-colors duration-200"
     >
       {children}
     </a>
@@ -107,7 +107,7 @@ interface FooterSocialLinkProps {
 const FooterSocialLink = (props: FooterSocialLinkProps) => (
   <a
     {...props}
-    className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 transition-colors duration-200"
+    className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-white/20 hover:bg-primary/80 transition-colors duration-200"
   />
 );
 

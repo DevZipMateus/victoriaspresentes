@@ -36,22 +36,22 @@ const Header = () => {
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'py-3 bg-white/95 backdrop-blur-md shadow-nav' 
+          ? 'py-3 bg-background/95 backdrop-blur-md shadow-nav' 
           : 'py-5 bg-transparent'
       }`}
     >
       <div className="container mx-auto px-4 md:px-8">
         <div className="flex items-center justify-between">
           <a href="#" className="relative z-20">
-            <h1 className="text-2xl font-display font-bold text-primary">
-              <span className="text-accent">Harmônica</span> Contabilidade
+            <h1 className="text-2xl font-display font-bold text-secondary-foreground">
+              <span className="text-primary">Harmônica</span> Contabilidade
             </h1>
           </a>
 
           {/* Desktop Menu */}
           <nav className="hidden md:flex items-center space-x-1">
             <NavLinks />
-            <Button className="quote-btn ml-4 bg-primary hover:bg-primary/90 text-white rounded-md transition-all duration-300 shadow-md hover:shadow-lg flex items-center gap-2">
+            <Button className="quote-btn ml-4 text-white rounded-md transition-all duration-300 shadow-md hover:shadow-lg flex items-center gap-2">
               <FileText size={18} />
               Fale Conosco
             </Button>
@@ -61,7 +61,7 @@ const Header = () => {
           <div className="md:hidden">
             <Sheet>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="h-10 w-10 text-foreground">
+                <Button variant="ghost" size="icon" className="h-10 w-10 text-secondary-foreground">
                   <Menu size={24} />
                   <span className="sr-only">Abrir menu</span>
                 </Button>
@@ -70,7 +70,7 @@ const Header = () => {
                 <nav className="flex flex-col items-center space-y-4 text-lg">
                   <NavLinks mobile />
                   <SheetClose asChild>
-                    <Button className="quote-btn mt-4 w-full bg-primary hover:bg-primary/90 text-white rounded-md transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2 py-3 text-base">
+                    <Button className="quote-btn mt-4 w-full text-white rounded-md transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2 py-3 text-base">
                       <FileText size={18} />
                       Fale Conosco
                     </Button>
@@ -108,7 +108,7 @@ const NavLinks = ({ mobile, onClick }: NavLinksProps) => {
           className={`font-medium transition-all duration-300 px-3 py-2 rounded-md
             ${mobile 
               ? 'text-xl text-foreground hover:text-primary mb-2 w-full text-center py-3' 
-              : 'text-foreground/90 hover:text-primary hover:bg-accent/10'
+              : 'text-foreground/80 hover:text-primary hover:bg-secondary/50'
             }`}
           onClick={onClick}
         >
