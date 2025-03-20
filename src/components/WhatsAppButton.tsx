@@ -49,7 +49,7 @@ const WhatsAppButton = () => {
             className="w-full py-2 px-4 bg-[#25D366] hover:bg-[#20BD5C] text-white rounded-md flex items-center justify-center"
           >
             <img 
-              src="/lovable-uploads/b4a47583-54bb-4862-8ddb-715085bb1758.png" 
+              src="/lovable-uploads/e5c365ac-2ba0-4157-bb97-d6821651fde1.png" 
               alt="WhatsApp" 
               className="w-5 h-5 mr-2" 
             />
@@ -65,7 +65,7 @@ const WhatsAppButton = () => {
       >
         <div className="absolute inset-0 bg-white opacity-30 whatsapp-ripple"></div>
         <img 
-          src="/lovable-uploads/b4a47583-54bb-4862-8ddb-715085bb1758.png" 
+          src="/lovable-uploads/e5c365ac-2ba0-4157-bb97-d6821651fde1.png" 
           alt="WhatsApp" 
           className="w-8 h-8" 
         />
