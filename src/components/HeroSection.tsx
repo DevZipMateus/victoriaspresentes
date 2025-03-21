@@ -43,7 +43,7 @@ const HeroSection = () => {
             e otimização financeira.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up [animation-delay:900ms]">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-up [animation-delay:900ms] mb-16">
             <Button size="lg" className="rounded-md shadow-md transition-all duration-300">
               Saiba Mais
             </Button>
