@@ -55,8 +55,8 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Scroll down indicator */}
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-primary cursor-pointer animate-bounce" onClick={scrollToNextSection}>
+      {/* Scroll down indicator - Adjusted to be lower */}
+      <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 text-primary cursor-pointer animate-bounce" onClick={scrollToNextSection}>
         <ChevronDown size={32} />
       </div>
     </section>;
