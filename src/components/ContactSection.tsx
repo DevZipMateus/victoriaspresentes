@@ -1,21 +1,9 @@
 
-import { useState, useEffect, useRef } from 'react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
+import { useEffect, useRef } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { useToast } from '@/components/ui/use-toast';
 import { Phone, Mail, MapPin, Clock, Linkedin, Facebook, Instagram } from 'lucide-react';
 
 const ContactSection = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: '',
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -37,31 +25,6 @@ const ContactSection = () => {
       animatedElements.forEach((el) => observer.unobserve(el));
     };
   }, []);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      toast({
-        title: "Mensagem enviada!",
-        description: "Agradecemos seu contato. Retornaremos em breve.",
-      });
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        message: '',
-      });
-      setIsSubmitting(false);
-    }, 1500);
-  };
 
   const contactInfo = [
     {
@@ -105,116 +68,64 @@ const ContactSection = () => {
             Estamos Prontos para Atender Você
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto animate-on-scroll">
-            Tire suas dúvidas, solicite um orçamento ou agende uma consulta. 
+            Entre em contato conosco através de WhatsApp, telefone ou e-mail.
             Nossa equipe está à disposição para oferecer o suporte que você precisa.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-5 gap-8 max-w-6xl mx-auto">
-          <div className="lg:col-span-2">
-            <Card className="border border-border/50 shadow-card h-full animate-on-scroll">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-6">Informações de Contato</h3>
-                
-                <div className="space-y-6 mb-8">
-                  {contactInfo.map((item, index) => (
-                    <ContactInfoItem 
-                      key={index}
-                      icon={item.icon}
-                      title={item.title}
-                      details={item.details}
-                      link={item.link}
-                    />
-                  ))}
-                </div>
-                
+        <div className="max-w-6xl mx-auto">
+          <Card className="border border-border/50 shadow-card animate-on-scroll">
+            <CardContent className="p-8">
+              <div className="grid md:grid-cols-2 gap-10">
                 <div>
-                  <h4 className="text-lg font-medium mb-4">Siga-nos</h4>
-                  <div className="flex space-x-3">
-                    <SocialLink icon={<Facebook size={20} />} href="#" label="Facebook" />
-                    <SocialLink icon={<Instagram size={20} />} href="#" label="Instagram" />
-                    <SocialLink icon={<Linkedin size={20} />} href="#" label="LinkedIn" />
+                  <h3 className="text-2xl font-bold mb-6">Informações de Contato</h3>
+                  <p className="text-muted-foreground mb-8">
+                    Para solicitar orçamentos, tirar dúvidas ou agendar uma consulta, 
+                    utilize um dos canais de atendimento abaixo. Respondemos com rapidez e eficiência.
+                  </p>
+                  
+                  <div className="space-y-6 mb-8">
+                    {contactInfo.map((item, index) => (
+                      <ContactInfoItem 
+                        key={index}
+                        icon={item.icon}
+                        title={item.title}
+                        details={item.details}
+                        link={item.link}
+                      />
+                    ))}
+                  </div>
+                  
+                  <div>
+                    <h4 className="text-lg font-medium mb-4">Siga-nos</h4>
+                    <div className="flex space-x-3">
+                      <SocialLink icon={<Facebook size={20} />} href="#" label="Facebook" />
+                      <SocialLink icon={<Instagram size={20} />} href="#" label="Instagram" />
+                      <SocialLink icon={<Linkedin size={20} />} href="#" label="LinkedIn" />
+                    </div>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
-          </div>
-          
-          <div className="lg:col-span-3">
-            <Card className="border border-border/50 shadow-card h-full animate-on-scroll">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-6">Envie-nos uma Mensagem</h3>
                 
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div>
-                      <label htmlFor="name" className="block text-sm font-medium mb-2">
-                        Nome Completo *
-                      </label>
-                      <Input
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        className="form-input"
-                        required
-                      />
+                <div className="flex items-center justify-center">
+                  <div className="text-center p-6 bg-primary/5 rounded-xl max-w-md">
+                    <div className="mb-4 text-primary">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mx-auto">
+                        <path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2v5Z" />
+                        <path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1" />
+                      </svg>
                     </div>
-                    
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-medium mb-2">
-                        E-mail *
-                      </label>
-                      <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        className="form-input"
-                        required
-                      />
+                    <h3 className="text-xl font-bold mb-3">Prefere atendimento via WhatsApp?</h3>
+                    <p className="text-muted-foreground mb-6">
+                      Clique no botão do WhatsApp no canto inferior direito da tela para iniciar uma conversa diretamente com nossa equipe de atendimento.
+                    </p>
+                    <div className="text-sm text-muted-foreground">
+                      Tempo médio de resposta: <span className="font-medium text-foreground">15 minutos</span>
                     </div>
                   </div>
-                  
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-medium mb-2">
-                      Telefone
-                    </label>
-                    <Input
-                      id="phone"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className="form-input"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium mb-2">
-                      Mensagem *
-                    </label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      className="form-input min-h-[120px]"
-                      required
-                    />
-                  </div>
-                  
-                  <Button 
-                    type="submit" 
-                    className="w-full bg-primary hover:bg-primary/90 text-white rounded-md shadow-button hover:shadow-lg transition-all duration-300"
-                    disabled={isSubmitting}
-                  >
-                    {isSubmitting ? "Enviando..." : "Enviar Mensagem"}
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
-          </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
 
         <div className="mt-16 animate-on-scroll">
