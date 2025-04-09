@@ -43,7 +43,7 @@ const HeroSection = () => {
             <Button size="lg" className="rounded-md shadow-md bg-victoria-pink hover:bg-victoria-dark transition-all duration-300">
               Conheça nossos produtos
             </Button>
-            <Button size="lg" className="bg-gradient-to-r from-[#DB7D7E] to-[#F59E0B] hover:from-[#DB7D7E] hover:to-[#F97316] text-white rounded-md shadow-md transition-all duration-300 flex gap-2 border-none">
+            <Button size="lg" className="bg-gradient-to-r from-[#DB7D7E] to-[#63363a] hover:from-[#DB7D7E] hover:to-[#63363a] text-white rounded-md shadow-md transition-all duration-300 flex gap-2 border-none">
               <Gift size={20} className="animate-pulse" />
               <span>Fazer encomenda</span>
             </Button>
