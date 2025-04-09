@@ -78,10 +78,10 @@ const WhatsAppButton = () => {
       
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="whatsapp-btn shadow-xl flex items-center justify-center relative overflow-hidden"
+        className="flex items-center justify-center relative overflow-hidden"
         aria-label="WhatsApp"
       >
-        <div className="absolute inset-0 bg-white opacity-30 whatsapp-ripple"></div>
+        <div className="absolute inset-0 opacity-30 whatsapp-ripple"></div>
         <img src="/lovable-uploads/e5c365ac-2ba0-4157-bb97-d6821651fde1.png" alt="WhatsApp" className="h-16 w-16" />
       </button>
     </div>
