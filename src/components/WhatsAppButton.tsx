@@ -82,7 +82,7 @@ const WhatsAppButton = () => {
         aria-label="WhatsApp"
       >
         <div className="absolute inset-0 bg-white opacity-30 whatsapp-ripple"></div>
-        <img src="/lovable-uploads/zap.png" alt="WhatsApp" className="h-16 w-16" />
+        <img src="/lovable-uploads/e5c365ac-2ba0-4157-bb97-d6821651fde1.png" alt="WhatsApp" className="h-16 w-16" />
       </button>
     </div>
   );
