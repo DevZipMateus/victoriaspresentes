@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { X, MessageSquare } from 'lucide-react';
+import { X } from 'lucide-react';
 
 const WhatsAppButton = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -78,11 +78,11 @@ const WhatsAppButton = () => {
       
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="whatsapp-btn bg-[#25D366] hover:bg-[#20BD5C] text-white p-3 rounded-full shadow-xl flex items-center justify-center relative overflow-hidden"
+        className="whatsapp-btn shadow-xl flex items-center justify-center relative overflow-hidden"
         aria-label="WhatsApp"
       >
         <div className="absolute inset-0 bg-white opacity-30 whatsapp-ripple"></div>
-        <MessageSquare className="h-7 w-7" />
+        <img src="/lovable-uploads/zap.png" alt="WhatsApp" className="h-16 w-16" />
       </button>
     </div>
   );

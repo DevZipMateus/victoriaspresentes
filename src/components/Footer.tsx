@@ -13,8 +13,19 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-victoria-pink text-white py-10 md:py-16">
-      <div className="container mx-auto">
+    <footer 
+      className="text-white py-10 md:py-16 relative"
+      style={{
+        backgroundImage: 'url("/lovable-uploads/materiais_page-0017.jpg")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
+      {/* Overlay for better text visibility */}
+      <div className="absolute inset-0 bg-black opacity-75 z-0"></div>
+      
+      <div className="container mx-auto relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
             <div className="flex items-center justify-center md:justify-start">
