@@ -1,17 +1,13 @@
-
 import { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { ChevronDown, Gift } from 'lucide-react';
-
 const HeroSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
-  
   useEffect(() => {
     if (sectionRef.current) {
       sectionRef.current.classList.add('animate-fade-in');
     }
   }, []);
-  
   const scrollToNextSection = () => {
     const productsSection = document.getElementById('products');
     if (productsSection) {
@@ -20,9 +16,7 @@ const HeroSection = () => {
       });
     }
   };
-  
-  return (
-    <section id="hero" ref={sectionRef} className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
+  return <section id="hero" ref={sectionRef} className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
       {/* Background with pattern */}
       <div className="absolute inset-0 z-0 opacity-10 bg-pattern-light bg-repeat"></div>
       <div className="absolute inset-0 z-0">
@@ -32,11 +26,7 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 md:px-8 relative z-10 text-center">
         <div className="max-w-4xl mx-auto">
           <div className="mb-8 animate-slide-up [animation-delay:300ms]">
-            <img 
-              src="/lovable-uploads/285af60b-f2b0-44dd-86bc-d98c672f359d.png" 
-              alt="Victorias Presentes & Cosméticos"
-              className="mx-auto h-36 w-auto"
-            />
+            
           </div>
           
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-victoria-pink mb-6 leading-tight animate-slide-up [animation-delay:500ms]">
@@ -62,8 +52,6 @@ const HeroSection = () => {
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-victoria-pink cursor-pointer animate-bounce" onClick={scrollToNextSection}>
         <ChevronDown size={32} />
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;
