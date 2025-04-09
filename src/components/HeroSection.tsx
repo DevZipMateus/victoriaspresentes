@@ -1,17 +1,13 @@
-
 import { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { ChevronDown, Gift } from 'lucide-react';
-
 const HeroSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
-  
   useEffect(() => {
     if (sectionRef.current) {
       sectionRef.current.classList.add('animate-fade-in');
     }
   }, []);
-  
   const scrollToNextSection = () => {
     const productsSection = document.getElementById('products');
     if (productsSection) {
@@ -20,19 +16,12 @@ const HeroSection = () => {
       });
     }
   };
-  
-  return (
-    <section 
-      id="hero" 
-      ref={sectionRef} 
-      className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden"
-      style={{
-        backgroundImage: 'url("/lovable-uploads/materiais_page-0016.jpg")',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}
-    >
+  return <section id="hero" ref={sectionRef} className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden" style={{
+    backgroundImage: 'url("/lovable-uploads/materiais_page-0016.jpg")',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat'
+  }}>
       {/* Dark overlay for better text visibility */}
       <div className="absolute inset-0 z-0 bg-black opacity-60"></div>
 
@@ -54,10 +43,7 @@ const HeroSection = () => {
             <Button size="lg" className="rounded-md shadow-md bg-victoria-pink hover:bg-victoria-dark transition-all duration-300">
               Conheça nossos produtos
             </Button>
-            <Button 
-              size="lg" 
-              className="bg-gradient-to-r from-[#F97316] to-[#F59E0B] hover:from-[#F59E0B] hover:to-[#F97316] text-white rounded-md shadow-md transition-all duration-300 flex gap-2 border-none"
-            >
+            <Button size="lg" className="bg-gradient-to-r from-[#DB7D7E] to-[#F59E0B] hover:from-[#DB7D7E] hover:to-[#F97316] text-white rounded-md shadow-md transition-all duration-300 flex gap-2 border-none">
               <Gift size={20} className="animate-pulse" />
               <span>Fazer encomenda</span>
             </Button>
@@ -68,8 +54,6 @@ const HeroSection = () => {
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white cursor-pointer animate-bounce" onClick={scrollToNextSection}>
         <ChevronDown size={32} />
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;
