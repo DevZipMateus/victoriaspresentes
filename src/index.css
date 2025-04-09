@@ -1,53 +1,61 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+/* Adicionando as fontes customizadas */
+@font-face {
+  font-family: 'Karima';
+  src: url('/fonts/Karima.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Marisa';
+  src: url('/fonts/Marisa-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Fallback usando Montserrat enquanto aguarda carregamento das fontes */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 210 40% 98%;
-    --foreground: 220 20% 20%;
+    --background: 350 100% 98%;
+    --foreground: 354 30% 30%;
     --card: 0 0% 100%;
-    --card-foreground: 220 20% 20%;
+    --card-foreground: 354 30% 30%;
     --popover: 0 0% 100%;
-    --popover-foreground: 220 20% 20%;
+    --popover-foreground: 354 30% 30%;
     
-    --secondary: 215 30% 92%;
-    --secondary-foreground: 215 35% 25%;
-    --muted: 215 30% 92%;
-    --muted-foreground: 215 25% 40%;
+    --secondary: 350 100% 95%;
+    --secondary-foreground: 354 30% 30%;
+    --muted: 350 30% 92%;
+    --muted-foreground: 354 10% 40%;
     
-    --primary: 175 65% 35%;
+    --primary: 358 52% 67%;
     --primary-foreground: 0 0% 100%;
-    --accent: 175 70% 40%;
+    --accent: 358 70% 85%;
     --accent-foreground: 0 0% 100%;
     
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 175 65% 35%;
+    --border: 354 31.8% 91.4%;
+    --input: 354 31.8% 91.4%;
+    --ring: 358 52% 67%;
     --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 222 91.2% 59.8%;
   }
-}
 
-@layer base {
   * {
     @apply border-border;
   }
 
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply bg-victoria-light text-foreground font-sans overflow-x-hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -121,40 +129,16 @@ html {
 
 @keyframes pulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    box-shadow: 0 0 0 0 rgba(219, 125, 126, 0.7);
     transform: scale(1);
   }
   70% {
-    box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+    box-shadow: 0 0 0 15px rgba(219, 125, 126, 0);
     transform: scale(1.05);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    box-shadow: 0 0 0 0 rgba(219, 125, 126, 0);
     transform: scale(1);
-  }
-}
-
-@keyframes jump {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-.animate-slide-up {
-  animation: slideUp 0.3s ease-out forwards;
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
   }
 }
 
@@ -167,30 +151,15 @@ html {
   transform: translateY(-10px);
 }
 
-/* Testimonial Slider Animation */
-.testimonial-slider {
-  transition: transform 0.6s ease-in-out;
-}
-
-/* Form input focus animation */
-.form-input {
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.form-input:focus {
-  border-color: hsl(var(--primary));
-  box-shadow: 0 0 0 2px rgba(var(--primary), 0.2);
-}
-
-/* Quote Request Button Animation */
-.quote-btn {
+/* Victoria Specific Styles */
+.victoria-btn {
   position: relative;
   overflow: hidden;
   transition: all 0.4s ease;
   z-index: 1;
 }
 
-.quote-btn:before {
+.victoria-btn:before {
   content: '';
   position: absolute;
   top: 0;
@@ -202,57 +171,20 @@ html {
   z-index: -1;
 }
 
-.quote-btn:hover:before {
+.victoria-btn:hover:before {
   width: 100%;
 }
 
-.quote-btn:hover {
+.victoria-btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 7px 14px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
 }
 
-.quote-btn:active {
+.victoria-btn:active {
   transform: translateY(1px);
 }
 
-/* Mobile menu improvements */
-@media (max-width: 768px) {
-  .mobile-nav-link {
-    @apply w-full text-center py-3 px-5;
-  }
-  
-  .quote-btn {
-    @apply w-full justify-center;
-  }
-  
-  /* Improved touch targets for mobile */
-  a, button {
-    @apply min-h-[44px] flex items-center;
-  }
-  
-  /* Sheet dialog improvements for mobile menu */
-  [data-radix-sheet-content] {
-    max-height: 100vh !important;
-    height: auto !important;
-    padding-bottom: 24px !important;
-  }
-  
-  /* Ensure the mobile menu is separate from the content */
-  [data-radix-sheet-content] {
-    z-index: 9999;
-  }
-}
-
-/* Shadow utility classes */
-.shadow-nav {
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-}
-
-.shadow-button {
-  box-shadow: 0 4px 6px rgba(22, 101, 52, 0.1);
-}
-
-/* Add responsive spacings */
+/* Responsive improvements */
 @media (max-width: 640px) {
   h1 {
     @apply text-3xl;
@@ -264,5 +196,9 @@ html {
   
   .section-padding {
     @apply py-6;
+  }
+
+  .mobile-nav-link {
+    @apply w-full text-center py-3 px-5;
   }
 }

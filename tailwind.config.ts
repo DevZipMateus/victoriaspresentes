@@ -20,8 +20,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				sans: ['Inter', 'sans-serif'],
-				display: ['Playfair Display', 'serif'],
+				sans: ['Marisa', 'sans-serif'],
+				display: ['Karima', 'serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -57,15 +57,11 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
+				victoria: {
+					pink: '#DB7D7E',
+					light: '#FCEBED',
+					dark: '#A85A5B',
+					muted: '#F5D3D4',
 				}
 			},
 			borderRadius: {
@@ -132,8 +128,8 @@ export default {
 			},
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-				'hero-pattern': 'linear-gradient(to right bottom, rgba(7, 33, 66, 0.8), rgba(44, 83, 131, 0.8))',
-				'service-gradient': 'linear-gradient(90deg, #f8f9fa 0%, #e9ecef 100%)',
+				'pattern': "url('/lovable-uploads/9c6ddfe9-6e4c-4e9c-908b-66d2db64d091.png')",
+				'pattern-light': "url('/lovable-uploads/36d93a7c-1381-4bda-bc1f-c1bacdc72aaa.png')",
 			},
 			boxShadow: {
 				'elegant': '0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025)',

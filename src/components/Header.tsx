@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Menu, X, FileText } from 'lucide-react';
+import { Menu, X, Phone } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import {
   Sheet,
@@ -14,7 +14,6 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const isMobile = useIsMobile();
 
-  // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -25,8 +24,6 @@ const Header = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    
-    // Initialize the scroll state on mount
     handleScroll();
     
     return () => window.removeEventListener('scroll', handleScroll);
@@ -36,43 +33,47 @@ const Header = () => {
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'py-3 bg-background/95 backdrop-blur-md shadow-nav' 
-          : 'py-5 bg-transparent'
+          ? 'py-2 bg-victoria-light/95 backdrop-blur-md shadow-nav' 
+          : 'py-4 bg-transparent'
       }`}
     >
       <div className="container mx-auto px-4 md:px-8">
         <div className="flex items-center justify-between">
-          <a href="#" className="relative z-20">
-            <h1 className="text-2xl font-display font-bold text-secondary-foreground">
-              <span className="text-primary">Harmônica</span> Contabilidade
-            </h1>
+          <a href="#" className="relative z-20" aria-label="Victorias Presentes & Cosméticos">
+            <div className="flex items-center">
+              <img 
+                src="/lovable-uploads/285af60b-f2b0-44dd-86bc-d98c672f359d.png" 
+                alt="Victorias Presentes & Cosméticos"
+                className="h-14 w-auto"
+              />
+            </div>
           </a>
 
           {/* Desktop Menu */}
           <nav className="hidden md:flex items-center space-x-1">
             <NavLinks />
-            <Button className="quote-btn ml-4 text-white rounded-md transition-all duration-300 shadow-md hover:shadow-lg flex items-center gap-2">
-              <FileText size={18} />
-              Fale Conosco
+            <Button variant="default" className="victoria-btn ml-4 bg-victoria-pink hover:bg-victoria-dark text-white rounded-md transition-all duration-300 shadow-md hover:shadow-lg flex items-center gap-2">
+              <Phone size={18} />
+              Entre em contato
             </Button>
           </nav>
 
-          {/* Mobile Menu using Sheet from shadcn/ui */}
+          {/* Mobile Menu */}
           <div className="md:hidden">
             <Sheet>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="h-10 w-10 text-secondary-foreground">
+                <Button variant="ghost" size="icon" className="h-10 w-10 text-foreground">
                   <Menu size={24} />
                   <span className="sr-only">Abrir menu</span>
                 </Button>
               </SheetTrigger>
-              <SheetContent side="top" className="pt-16 pb-8 px-6">
+              <SheetContent side="top" className="pt-16 pb-8 px-6 bg-victoria-light">
                 <nav className="flex flex-col items-center space-y-4 text-lg">
                   <NavLinks mobile />
                   <SheetClose asChild>
-                    <Button className="quote-btn mt-4 w-full text-white rounded-md transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2 py-3 text-base">
-                      <FileText size={18} />
-                      Fale Conosco
+                    <Button className="victoria-btn mt-4 w-full bg-victoria-pink hover:bg-victoria-dark text-white rounded-md transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2 py-3 text-base">
+                      <Phone size={18} />
+                      Entre em contato
                     </Button>
                   </SheetClose>
                 </nav>
@@ -93,9 +94,8 @@ interface NavLinksProps {
 const NavLinks = ({ mobile, onClick }: NavLinksProps) => {
   const links = [
     { name: 'Início', href: '#hero' },
+    { name: 'Produtos', href: '#products' },
     { name: 'Sobre Nós', href: '#about' },
-    { name: 'Serviços', href: '#services' },
-    { name: 'Planos', href: '#plans' },
     { name: 'Contato', href: '#contact' },
   ];
 
@@ -107,8 +107,8 @@ const NavLinks = ({ mobile, onClick }: NavLinksProps) => {
           href={link.href}
           className={`font-medium transition-all duration-300 px-3 py-2 rounded-md
             ${mobile 
-              ? 'text-xl text-foreground hover:text-primary mb-2 w-full text-center py-3' 
-              : 'text-foreground/80 hover:text-primary hover:bg-secondary/50'
+              ? 'text-xl text-foreground hover:text-victoria-pink mb-2 w-full text-center py-3' 
+              : 'text-foreground/80 hover:text-victoria-pink hover:bg-victoria-light'
             }`}
           onClick={onClick}
         >

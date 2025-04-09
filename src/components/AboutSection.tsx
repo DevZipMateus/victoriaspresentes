@@ -1,117 +1,77 @@
 
 import { useEffect, useRef } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { Check, Target, Heart, Award } from 'lucide-react';
+import { Check } from 'lucide-react';
+import AnimatedScrollObserver from '@/components/AnimatedScrollObserver';
 
 const AboutSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    const animatedElements = document.querySelectorAll('.animate-on-scroll');
-    animatedElements.forEach((el) => observer.observe(el));
-
-    return () => {
-      animatedElements.forEach((el) => observer.unobserve(el));
-    };
-  }, []);
-
   return (
-    <section id="about" ref={sectionRef} className="section-padding bg-white">
-      <div className="container mx-auto">
-        <div className="text-center mb-16">
-          <span className="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4 animate-on-scroll">
-            Sobre Nós
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 animate-on-scroll">
-            Conhecimento e Experiência para o Sucesso do seu Negócio
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto animate-on-scroll">
-            Mais que um escritório contábil, somos um parceiro estratégico comprometido com
-            o crescimento sustentável da sua empresa.
-          </p>
-        </div>
+    <section id="about" ref={sectionRef} className="section-padding bg-victoria-light/50">
+      <AnimatedScrollObserver>
+        <div className="container mx-auto">
+          <div className="text-center mb-16">
+            <span className="inline-block px-4 py-1 bg-victoria-pink/10 text-victoria-pink rounded-full text-sm font-medium mb-4 animate-on-scroll">
+              Sobre Nós
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 animate-on-scroll text-victoria-pink">
+              Victoria's Presentes & Cosméticos
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto animate-on-scroll">
+              Especialistas em transformar momentos comuns em experiências memoráveis 
+              através de presentes cuidadosamente selecionados.
+            </p>
+          </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
-            <div className="animate-on-scroll">
-              <h3 className="text-2xl font-bold mb-4">
-                Conte com uma Contabilidade Harmônica
-              </h3>
-              <p className="text-muted-foreground mb-6">
-                Desde 2010, ajudamos empresas de todos os tamanhos a otimizar suas operações
-                financeiras e contábeis. Nossa abordagem combina expertise técnica com um
-                atendimento personalizado, garantindo que cada cliente receba soluções
-                adequadas às suas necessidades específicas.
-              </p>
-              <ul className="space-y-3">
-                {[
-                  'Equipe multidisciplinar e altamente qualificada',
-                  'Processos contábeis simplificados e transparentes',
-                  'Tecnologia de ponta para gestão financeira eficiente',
-                  'Comunicação clara e atendimento personalizado'
-                ].map((item, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6 order-2 md:order-1">
+              <div className="animate-on-scroll">
+                <h3 className="text-2xl font-bold mb-4 text-victoria-dark">
+                  Uma experiência única para cada cliente
+                </h3>
+                <p className="text-muted-foreground mb-6">
+                  Nossa missão é proporcionar experiências memoráveis através de presentes personalizados.
+                  Cada cliente é único, e acreditamos que os presentes também devem ser. Por isso,
+                  focamos em entender as necessidades individuais e oferecer produtos que transmitam
+                  sentimentos especiais.
+                </p>
+                <ul className="space-y-3">
+                  {[
+                    'Produtos selecionados com qualidade garantida',
+                    'Atendimento personalizado e exclusivo',
+                    'Opções para todos os gostos e ocasiões',
+                    'Entregas cuidadosas para preservar a surpresa'
+                  ].map((item, index) => (
+                    <li key={index} className="flex items-start gap-3">
+                      <Check className="h-5 w-5 text-victoria-pink flex-shrink-0 mt-0.5" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <div className="order-1 md:order-2 animate-on-scroll">
+              <div className="rounded-lg shadow-lg overflow-hidden relative aspect-square max-w-md mx-auto">
+                <div className="absolute inset-0 bg-pattern opacity-20"></div>
+                <div className="p-8 flex items-center justify-center h-full z-10 relative">
+                  <img 
+                    src="/lovable-uploads/285af60b-f2b0-44dd-86bc-d98c672f359d.png" 
+                    alt="Victorias Presentes & Cosméticos"
+                    className="w-3/4 h-auto" 
+                  />
+                </div>
+              </div>
+              <blockquote className="mt-6 italic text-center text-victoria-dark/80 animate-on-scroll">
+                "Onde cada encomenda é uma experiência única"
+              </blockquote>
             </div>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <AboutCard 
-              icon={<Target className="h-10 w-10 text-primary" />}
-              title="Missão"
-              description="Oferecer serviços contábeis de excelência, proporcionando segurança e tranquilidade para que nossos clientes possam focar no crescimento de seus negócios."
-            />
-            <AboutCard 
-              icon={<Heart className="h-10 w-10 text-primary" />}
-              title="Visão"
-              description="Ser reconhecida como referência em contabilidade consultiva no Brasil, criando relacionamentos duradouros baseados em confiança e resultados."
-            />
-            <AboutCard 
-              icon={<Award className="h-10 w-10 text-primary" />}
-              title="Valores"
-              description="Ética, transparência, compromisso com resultados, excelência técnica e inovação constante em nossos processos e serviços."
-            />
-            <AboutCard 
-              icon={<Check className="h-10 w-10 text-primary" />}
-              title="Diferenciais"
-              description="Atendimento personalizado, tecnologia de ponta, equipe especializada e processos transparentes para garantir sua satisfação."
-            />
-          </div>
         </div>
-      </div>
+      </AnimatedScrollObserver>
     </section>
   );
 };
-
-interface AboutCardProps {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-}
-
-const AboutCard = ({ icon, title, description }: AboutCardProps) => (
-  <Card className="animate-on-scroll service-card border border-border/50 shadow-card">
-    <CardContent className="p-6">
-      <div className="mb-4">{icon}</div>
-      <h4 className="text-xl font-bold mb-2">{title}</h4>
-      <p className="text-muted-foreground text-sm">{description}</p>
-    </CardContent>
-  </Card>
-);
 
 export default AboutSection;
