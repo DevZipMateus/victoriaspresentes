@@ -1,27 +1,19 @@
-
 import { Button } from '@/components/ui/button';
 import { ChevronUp, Instagram, MapPin, Mail, Phone } from 'lucide-react';
-
 const Footer = () => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth',
+      behavior: 'smooth'
     });
   };
-
   const currentYear = new Date().getFullYear();
-
-  return (
-    <footer 
-      className="text-white py-10 md:py-16 relative"
-      style={{
-        backgroundImage: 'url("/lovable-uploads/materiais_page-0017.jpg")',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}
-    >
+  return <footer className="text-white py-10 md:py-16 relative" style={{
+    backgroundImage: 'url("/lovable-uploads/materiais_page-0017.jpg")',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat'
+  }}>
       {/* Overlay for better text visibility */}
       <div className="absolute inset-0 bg-black opacity-75 z-0"></div>
       
@@ -29,11 +21,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
             <div className="flex items-center justify-center md:justify-start">
-              <img 
-                src="/lovable-uploads/285af60b-f2b0-44dd-86bc-d98c672f359d.png"
-                alt="Victorias Presentes & Cosméticos"
-                className="h-24 w-auto bg-white/90 p-3 rounded-lg"
-              />
+              <img src="/lovable-uploads/285af60b-f2b0-44dd-86bc-d98c672f359d.png" alt="Victorias Presentes & Cosméticos" className="h-24 w-auto bg-white/90 p-3 rounded-lg" />
             </div>
             <p className="text-white/80 max-w-xs text-center md:text-left">
               Onde cada encomenda é uma experiência única. Presentes especiais para momentos inesquecíveis.
@@ -93,40 +81,27 @@ const Footer = () => {
             <p className="text-white/70 text-sm">
               © {currentYear} Victoria's Presentes & Cosméticos. Todos os direitos reservados.
             </p>
-            <p className="text-white/50 text-xs mt-1">
-              Contabilidade: <a href="https://instagram.com/blessedcontabilidade" className="hover:text-white/80 transition-colors">@blessedcontabilidade</a> | Tel: 62 995283671
-            </p>
+            
           </div>
           <div className="order-1 md:order-2">
-            <Button
-              onClick={scrollToTop}
-              variant="outline"
-              size="icon"
-              className="rounded-full bg-white/10 hover:bg-white/30 border-white/20 text-white"
-            >
+            <Button onClick={scrollToTop} variant="outline" size="icon" className="rounded-full bg-white/10 hover:bg-white/30 border-white/20 text-white">
               <ChevronUp className="h-5 w-5" />
             </Button>
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 interface FooterNavItemProps {
   href: string;
   children: React.ReactNode;
 }
-
-const FooterNavItem = ({ href, children }: FooterNavItemProps) => (
-  <li>
-    <a
-      href={href}
-      className="text-white/70 hover:text-white transition-colors duration-200"
-    >
+const FooterNavItem = ({
+  href,
+  children
+}: FooterNavItemProps) => <li>
+    <a href={href} className="text-white/70 hover:text-white transition-colors duration-200">
       {children}
     </a>
-  </li>
-);
-
+  </li>;
 export default Footer;
