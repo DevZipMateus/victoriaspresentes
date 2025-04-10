@@ -61,7 +61,7 @@ const HeroSection = () => {
               size="lg" 
               className="rounded-md shadow-lg bg-white/20 hover:bg-victoria-pink/90 backdrop-blur-sm text-white border border-white/30 transition-all duration-300 hover:translate-y-[-2px] hover:border-victoria-pink/50 flex gap-2"
             >
-              <Gift size={20} className="text-victoria-pink" />
+              <Gift size={20} className="text-white transition-colors duration-300" />
               <span>Fazer encomenda</span>
             </Button>
           </div>
