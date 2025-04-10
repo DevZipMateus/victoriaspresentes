@@ -34,7 +34,7 @@ const Header = () => {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
           ? 'py-2 bg-victoria-light/95 backdrop-blur-md shadow-nav' 
-          : 'py-4 bg-transparent'
+          : 'py-4 bg-victoria-pink/80'
       }`}
     >
       <div className="container mx-auto px-4 md:px-8">
@@ -51,7 +51,7 @@ const Header = () => {
 
           {/* Desktop Menu */}
           <nav className="hidden md:flex items-center space-x-1">
-            <NavLinks />
+            <NavLinks isScrolled={isScrolled} />
             <Button variant="default" className="victoria-btn ml-4 bg-victoria-pink hover:bg-victoria-dark text-white rounded-md transition-all duration-300 shadow-md hover:shadow-lg flex items-center gap-2">
               <Phone size={18} />
               Entre em contato
@@ -62,7 +62,7 @@ const Header = () => {
           <div className="md:hidden">
             <Sheet>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="h-10 w-10 text-foreground">
+                <Button variant="ghost" size="icon" className={`h-10 w-10 ${isScrolled ? 'text-foreground' : 'text-white'}`}>
                   <Menu size={24} />
                   <span className="sr-only">Abrir menu</span>
                 </Button>
@@ -89,9 +89,10 @@ const Header = () => {
 interface NavLinksProps {
   mobile?: boolean;
   onClick?: () => void;
+  isScrolled?: boolean;
 }
 
-const NavLinks = ({ mobile, onClick }: NavLinksProps) => {
+const NavLinks = ({ mobile, onClick, isScrolled }: NavLinksProps) => {
   const links = [
     { name: 'Início', href: '#hero' },
     { name: 'Produtos', href: '#products' },
@@ -108,7 +109,9 @@ const NavLinks = ({ mobile, onClick }: NavLinksProps) => {
           className={`font-medium transition-all duration-300 px-3 py-2 rounded-md
             ${mobile 
               ? 'text-xl text-foreground hover:text-victoria-pink mb-2 w-full text-center py-3' 
-              : 'text-foreground/80 hover:text-victoria-pink hover:bg-victoria-light'
+              : isScrolled
+                ? 'text-foreground/80 hover:text-victoria-pink hover:bg-victoria-light' 
+                : 'text-white hover:text-white/80 hover:bg-victoria-pink/80'
             }`}
           onClick={onClick}
         >
