@@ -2,6 +2,7 @@
 import { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { ChevronDown, Gift } from 'lucide-react';
+import { phoneNumbers, openWhatsApp } from '@/components/WhatsAppButton';
 
 const HeroSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -19,6 +20,12 @@ const HeroSection = () => {
         behavior: 'smooth'
       });
     }
+  };
+  
+  const handleOpenWhatsAppOrder = () => {
+    // Use the first phone number for orders
+    const orderMessage = "Olá!%20Gostaria%20de%20fazer%20uma%20encomenda%20com%20a%20Victoria%20Presente%20&%20Cosméticos.%20Podem%20me%20ajudar?";
+    openWhatsApp(phoneNumbers[0].number, orderMessage);
   };
   
   return (
@@ -54,12 +61,14 @@ const HeroSection = () => {
             <Button 
               size="lg" 
               className="rounded-md shadow-lg bg-victoria-pink hover:bg-victoria-dark transition-all duration-300 border border-white/20 text-white hover:translate-y-[-2px]"
+              onClick={scrollToNextSection}
             >
               Conheça nossos produtos
             </Button>
             <Button 
               size="lg" 
               className="rounded-md shadow-lg bg-white/20 hover:bg-victoria-pink/90 backdrop-blur-sm text-white border border-white/30 transition-all duration-300 hover:translate-y-[-2px] hover:border-victoria-pink/50 flex gap-2"
+              onClick={handleOpenWhatsAppOrder}
             >
               <Gift size={20} className="text-white transition-colors duration-300" />
               <span>Fazer encomenda</span>

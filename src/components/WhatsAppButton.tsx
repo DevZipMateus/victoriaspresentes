@@ -2,6 +2,23 @@
 import React, { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
 
+// Export these for reuse in other components
+export const phoneNumbers = [
+  {
+    number: "62995161346",
+    display: "(62) 99516-1346"
+  },
+  {
+    number: "62991563589",
+    display: "(62) 99156-3589"
+  }
+];
+
+export const openWhatsApp = (number: string, customMessage?: string) => {
+  const message = customMessage || "Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20produtos%20e%20serviços%20da%20Victoria%20Presente%20&%20Cosméticos.";
+  window.open(`https://wa.me/55${number}?text=${message}`, '_blank');
+};
+
 const WhatsAppButton = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
@@ -21,19 +38,8 @@ const WhatsAppButton = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const phoneNumbers = [
-    {
-      number: "62995161346",
-      display: "(62) 99516-1346"
-    },
-    {
-      number: "62991563589",
-      display: "(62) 99156-3589"
-    }
-  ];
-
   const handleOpenWhatsApp = (number: string) => {
-    window.open(`https://wa.me/55${number}?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20produtos%20e%20serviços%20da%20Victoria's.`, '_blank');
+    openWhatsApp(number);
     setIsOpen(false);
   };
 

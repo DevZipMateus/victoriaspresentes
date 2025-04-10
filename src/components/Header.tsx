@@ -9,10 +9,12 @@ import {
   SheetTrigger,
   SheetClose,
 } from "@/components/ui/sheet";
+import { phoneNumbers, openWhatsApp } from '@/components/WhatsAppButton';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const isMobile = useIsMobile();
+  const [isContactMenuOpen, setIsContactMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,6 +30,10 @@ const Header = () => {
     
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const toggleContactMenu = () => {
+    setIsContactMenuOpen(!isContactMenuOpen);
+  };
 
   return (
     <header 
@@ -52,10 +58,51 @@ const Header = () => {
           {/* Desktop Menu */}
           <nav className="hidden md:flex items-center space-x-1">
             <NavLinks isScrolled={isScrolled} />
-            <Button variant="default" className="victoria-btn ml-4 bg-victoria-pink hover:bg-victoria-dark text-white rounded-md transition-all duration-300 shadow-md hover:shadow-lg flex items-center gap-2">
-              <Phone size={18} />
-              Entre em contato
-            </Button>
+            <div className="relative">
+              <Button 
+                variant="default" 
+                className="victoria-btn ml-4 bg-victoria-pink hover:bg-victoria-dark text-white rounded-md transition-all duration-300 shadow-md hover:shadow-lg flex items-center gap-2"
+                onClick={toggleContactMenu}
+              >
+                <Phone size={18} />
+                Entre em contato
+              </Button>
+              
+              {isContactMenuOpen && (
+                <div className="absolute right-0 mt-2 bg-white rounded-lg shadow-lg p-4 min-w-[240px] z-50">
+                  <div className="flex justify-between items-center mb-3">
+                    <h3 className="font-bold text-victoria-dark">Entre em contato</h3>
+                    <button 
+                      onClick={() => setIsContactMenuOpen(false)}
+                      className="text-gray-500 hover:text-gray-700"
+                      aria-label="Fechar"
+                    >
+                      <X size={18} />
+                    </button>
+                  </div>
+                  <p className="text-gray-600 text-sm mb-3">
+                    Olá! Estamos aqui para ajudar com seus pedidos e dúvidas.
+                  </p>
+                  <div className="space-y-2">
+                    {phoneNumbers.map((phone, index) => (
+                      <button
+                        key={index}
+                        onClick={() => openWhatsApp(phone.number)}
+                        className="w-full py-2 px-4 bg-[#25D366] hover:bg-[#20BD5C] text-white rounded-md flex items-center justify-center mb-2"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2 h-5 w-5">
+                          <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
+                          <path d="M9 10a.5.5 0 0 1 1 0v2a.5.5 0 0 1-1 0v-2Z" />
+                          <path d="M14 10a.5.5 0 0 1 1 0v2a.5.5 0 0 1-1 0v-2Z" />
+                          <path d="M8.5 14a5.5 5.5 0 0 0 7 0" />
+                        </svg>
+                        {phone.display}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
           </nav>
 
           {/* Mobile Menu */}
@@ -71,10 +118,19 @@ const Header = () => {
                 <nav className="flex flex-col items-center space-y-4 text-lg">
                   <NavLinks mobile />
                   <SheetClose asChild>
-                    <Button className="victoria-btn mt-4 w-full bg-victoria-pink hover:bg-victoria-dark text-white rounded-md transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2 py-3 text-base">
-                      <Phone size={18} />
-                      Entre em contato
-                    </Button>
+                    <div className="w-full space-y-4">
+                      <p className="text-center font-semibold">Entre em contato</p>
+                      {phoneNumbers.map((phone, index) => (
+                        <Button
+                          key={index}
+                          onClick={() => openWhatsApp(phone.number)}
+                          className="w-full py-3 bg-[#25D366] hover:bg-[#20BD5C] text-white rounded-md flex items-center justify-center gap-2"
+                        >
+                          <Phone size={18} />
+                          {phone.display}
+                        </Button>
+                      ))}
+                    </div>
                   </SheetClose>
                 </nav>
               </SheetContent>
