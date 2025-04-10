@@ -34,7 +34,7 @@ const HeroSection = () => {
       }}
     >
       {/* Lighter overlay for better visibility */}
-      <div className="absolute inset-0 z-0 bg-black opacity-40"></div>
+      <div className="absolute inset-0 z-0 bg-black opacity-30"></div>
 
       <div className="container mx-auto px-4 md:px-8 relative z-10 text-center">
         <div className="max-w-4xl mx-auto">
