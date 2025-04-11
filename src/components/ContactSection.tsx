@@ -1,5 +1,5 @@
 
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Phone, Mail, MapPin, Instagram } from 'lucide-react';
 import AnimatedScrollObserver from '@/components/AnimatedScrollObserver';
@@ -24,7 +24,7 @@ const ContactSection = () => {
       icon: <MapPin className="h-5 w-5 text-victoria-pink" />,
       title: "Endereço",
       details: "Rua Espírito Santo Qd 06 Lt 07 C1, Goiá, Goiânia - GO, CEP: 74.485-310",
-      link: "https://maps.google.com/maps?q=Rua+Espírito+Santo+Qd+06+Lt+07+C1+Goiá,+Goiânia+-+GO"
+      link: "https://maps.google.com/maps?q=Med's+Araújo+Calçados+%26+Acessórios"
     },
     {
       icon: <Instagram className="h-5 w-5 text-victoria-pink" />,
@@ -123,7 +123,7 @@ const ContactSection = () => {
             <Card className="border border-victoria-light/50 shadow-card overflow-hidden">
               <div className="h-[400px] w-full">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3821.8988363539383!2d-49.32598492391757!3d-16.686964184006447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935ef0fee9abe8e7%3A0xbe203c6c056d5ca2!2sR.%20Esp%C3%ADrito%20Santo%20-%20Goi%C3%A1%2C%20Goi%C3%A2nia%20-%20GO%2C%2074486-025!5e0!3m2!1spt-BR!2sbr!4v1713643381289!5m2!1spt-BR!2sbr"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d239.3719788895563!2d-49.333018683545945!3d-16.680572538979788!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935ef5a5f0074ab1%3A0x20a1d6996a4898f3!2sMed&#39;s%20Ara%C3%BAjo%20Cal%C3%A7ados%20%26%20Acess%C3%B3rios!5e0!3m2!1spt-BR!2sbr!4v1713779053935!5m2!1spt-BR!2sbr"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
